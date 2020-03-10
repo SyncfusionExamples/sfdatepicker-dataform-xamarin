@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:dataForm="clr-namespace:Syncfusion.XForms.DataForm;assembly=Syncfusion.SfDataForm.XForms"
+             xmlns:picker="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+             xmlns:local="clr-namespace:DataFormXamarin"
+             x:Class="DataFormXamarin.MainPage">
+    <ContentPage.BindingContext>
+        <local:DataFormViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <local:DataFormBehavior/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.9*"/>
+            </Grid.RowDefinitions>
+            <dataForm:SfDataForm x:Name="dataForm" Grid.Row="1" LayoutOptions="Default" DataObject="{Binding Contacts}"/>
+            <picker:SfDatePicker x:Name="picker" 
+                         BackgroundColor="Silver" 
+                         ShowHeader="false"
+                         PickerMode="Dialog"
+                         ShowFooter="true" 
+                         PickerWidth="250" 
+                         PickerHeight="200">
+            </picker:SfDatePicker>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
